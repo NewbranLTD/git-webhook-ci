@@ -16,13 +16,25 @@ or
   $ yarn add gulp-git-webhook
 ```
 
-## Usage
+## Configuration && Usage
+
+Create a js file (normally on your project root directory). Let's call it `webhook.js`.
 
 ```js
 const gulpGitWebhook = require('gulp-git-webhook');
-
-gulpGitWebhook('Magic');
+const config = {
+  "secret": "your-github-webhook-secret",
+  "path": "/webhook",
+  "port": 8081,
+  "branch": "refs/heads/master"
+};
+gulpGitWebhook(config);
 ```
+
+Then you can add a line to your `package.json`
+
+
+
 ## License
 
 MIT © [NEWBRAN.CH](joelchu.com)
@@ -35,4 +47,4 @@ MIT © [NEWBRAN.CH](joelchu.com)
 [daviddm-image]: https://david-dm.org/NewbranLtd/gulp-git-webhook.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/NewbranLtd/gulp-git-webhook
 
-Power by [](https://github.com/NewbranLTD/undefined).
+Power by [generator-nodex](https://github.com/NewbranLTD/generator-nodex).
