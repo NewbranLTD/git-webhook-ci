@@ -1,0 +1,75 @@
+{
+  "name": "gulp-git-webhook",
+  "version": "0.0.0",
+  "description": "A Git(hub) webhook callback server to fetch new code (poor man CI)",
+  "homepage": "https://github.com/NewbranLtd/gulp-git-webhook",
+  "author": {
+    "name": "NEWBRAN.CH",
+    "email": "joelckchu@gmail.com",
+    "url": "joelchu.com"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "keywords": [
+    "gulp",
+    "node",
+    "git",
+    "github"
+  ],
+  "devDependencies": {
+    "nsp": "^3.1.0",
+    "eslint": "^4.17.0",
+    "prettier": "^1.10.2",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-config-xo": "^0.20.0",
+    "jest": "^22.0.6"
+  },
+  "scripts": {
+    "prepublishOnly": "nsp check",
+    "pretest": "eslint . --fix",
+    "precommit": "lint-staged",
+    "test": "jest"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo",
+      "prettier"
+    ],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 90
+        }
+      ]
+    },
+    "plugins": [
+      "prettier"
+    ]
+  },
+  "repository": "NewbranLtd/gulp-git-webhook",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,27 @@
+{
+  "generator-nodex": {
+    "promptValues": {
+      "authorName": "NEWBRAN.CH",
+      "authorEmail": "joelckchu@gmail.com",
+      "authorUrl": "joelchu.com"
+    },
+    "name": "gulp-git-webhook",
+    "description": "A Git(hub) webhook callback server to fetch new code (poor man CI)",
+    "homepage": "https://github.com/NewbranLtd/gulp-git-webhook",
+    "authorName": "NEWBRAN.CH",
+    "authorEmail": "joelckchu@gmail.com",
+    "authorUrl": "joelchu.com",
+    "keywords": [
+      "gulp",
+      "node",
+      "git",
+      "github"
+    ],
+    "includeCoveralls": false,
+    "githubAccount": "NewbranLtd",
+    "yarnInstalled": true,
+    "cnpmInstalled": false,
+    "installer": "yarn",
+    "lang": "en"
+  }
+}
