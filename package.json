@@ -73,6 +73,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "github-webhook-handler": "^0.7.1"
+    "github-webhook-handler": "^0.7.1",
+    "meow": "^4.0.0"
+  },
+  "bin": {
+    "git-webhook-ci": "./lib/cli.js"
   }
 }
