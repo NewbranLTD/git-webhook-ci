@@ -27,13 +27,14 @@
     "jest": "^22.0.6",
     "lint-staged": "^6.1.0",
     "nsp": "^3.1.0",
-    "prettier": "^1.10.2"
+    "prettier": "^1.10.2",
+    "supertest": "^3.0.0"
   },
   "scripts": {
     "prepublishOnly": "nsp check",
     "pretest": "eslint . --fix",
     "precommit": "lint-staged",
-    "test": "jest",
+    "test": "jest --forceExit",
     "test-run": "NODE_ENV=debug node ./__tests__/fixtures/run.js"
   },
   "lint-staged": {

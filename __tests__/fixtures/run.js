@@ -9,6 +9,6 @@ async function methodToTest(config) {
 
 try {
   methodToTest(config);
-} catch(e) {
+} catch (e) {
   console.log('Error catch by ourself', e);
 }

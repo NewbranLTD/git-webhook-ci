@@ -1,15 +1,28 @@
 'use strict';
 const gitWebhook = require('../lib/index.js');
-// Create a new wrapper method to
-async function methodToTest(config) {
-  let result = await gitWebhook(config);
-  return result;
-}
+const supertest = require('supertest');
+const config = {
+  secret: 'some-silly-secret-you-dont-want-to-know'
+};
 
+// Run test main
 describe('gitWebhookCi test', () => {
-  test('Expect to pass with correct options', () => {
-    expect(() => {
-      methodToTest();
-    }).toThrow();
+  let server;
+
+  beforeEach(done => {
+    gitWebhook(config).then(result => {
+      server = result;
+      done();
+    });
+  });
+
+  afterEach(() => {
+    server.close();
+  });
+
+  test('Expect the server start with correct configuration', () => {
+    return supertest('http://localhost:8081')
+      .get('/')
+      .expect(404);
   });
 });
