@@ -1,4 +1,4 @@
-# gulp-git-webhook [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# git-webhook-ci [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > A Git(hub) webhook callback server to fetch new code (poor man CI)
 
 This little tool is born out of real projects. Keep having to deploy and setup demo site etc. Why bother if you own the git account?
