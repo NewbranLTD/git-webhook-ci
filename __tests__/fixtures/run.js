@@ -1,8 +1,14 @@
 'use strict';
 const gitWebhookCi = require('../../lib/index');
 
-const config = {
-  secret: 'some-crappy-method'
-};
+const config = {};
 
-gitWebhookCi({});
+async function methodToTest(config) {
+  return gitWebhookCi(config);
+}
+
+try {
+  methodToTest(config);
+} catch(e) {
+  console.log('Error catch by ourself', e);
+}
