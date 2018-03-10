@@ -9,23 +9,9 @@
  */
 const { spawn } = require('child_process');
 const http = require('http');
-const createHandler = require('github-webhook-handler');
-// Log method
-const log = (...args) => {
-  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'debug') {
-    console.log(args);
-  }
-};
-// Default options
-const defaultOptions = {
-  provider: 'github', // For future use
-  dir: '',
-  path: '/webhook',
-  port: 8081,
-  branch: 'refs/heads/master',
-  cmd: 'git pull origin master --no-edit'
-};
-
+const provider = require('./lib/provider');
+const defaultOptions = require('./lib/option');
+const log = require('./lib/log');
 /**
  * @param {object} config configuration for the function return
  * @return {function} for calls
@@ -38,6 +24,7 @@ const serve = options => {
   if (!config.secret || config.secret === '') {
     throw new Error('You must provide the secret!');
   }
+  const createHandler = provider(config.provider);
   /**
    * @TODO allow passing an function to the cmd?
    */
