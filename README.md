@@ -78,9 +78,9 @@ MIT © [NEWBRAN.CH](joelchu.com)
 
 [npm-image]: https://badge.fury.io/js/git-webhook-ci.svg
 [npm-url]: https://npmjs.org/package/git-webhook-ci
-[travis-image]: https://travis-ci.org/NewbranLtd/git-webhook-ci.svg?branch=master
-[travis-url]: https://travis-ci.org/NewbranLtd/git-webhook-ci
-[daviddm-image]: https://david-dm.org/NewbranLtd/git-webhook-ci.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/NewbranLtd/git-webhook-ci
+[travis-image]: https://travis-ci.org/NewbranLTD/git-webhook-ci.svg?branch=master
+[travis-url]: https://travis-ci.org/NewbranLTD/git-webhook-ci
+[daviddm-image]: https://david-dm.org/NewbranLTD/git-webhook-ci.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/NewbranLTD/git-webhook-ci
 
 Power by [generator-nodex](https://github.com/NewbranLTD/generator-nodex).
