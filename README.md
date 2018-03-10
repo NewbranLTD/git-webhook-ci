@@ -23,13 +23,15 @@ Create a js file (normally on your project root directory). Let's call it `webho
 ```js
 const gitWebhook = require('git-webhook-ci');
 const config = {
-  "dir": "",
   "secret": "your-github-webhook-secret",
   "path": "/webhook",
   "port": 8081,
   "branch": "refs/heads/master",
   "cmd": "git pull origin master --no-edit"
 };
+/*
+The only require field is `secret` everything else are optional
+*/
 gitWebhook(config);
 ```
 
@@ -47,7 +49,7 @@ As you can see the port number `8081` and `/webhook` correspond the config file,
 
 _**Secret**_: generate your own secret phrase, again correspond the configuration file.
 
-Which events would you like to trigger this webhook? Just the push event
+**Which events would you like to trigger this webhook?** Just the push event
 
 **Active**: check this check box so you can see the log from github.
 
@@ -67,11 +69,15 @@ The `cmd` field is your config is the actual method to run. See table below for 
 
 ### Debug option
 
-If you want to know what is happening internally, you can pass `NODE_ENV=debug`. It will console lot out information.
+If you want to know what is happening internally, you can pass `NODE_ENV=debug`. It will `console.log` out information.
 
 ```sh
   NODE_ENV=debug node ./webhook.js
 ```
+
+## CLI
+
+Coming soon.
 
 ### TODO(s)
 
