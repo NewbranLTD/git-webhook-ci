@@ -21,19 +21,36 @@ or
 Create a js file (normally on your project root directory). Let's call it `webhook.js`.
 
 ```js
-const gulpGitWebhook = require('gulp-git-webhook');
+const gitWebhook = require('gulp-git-webhook');
 const config = {
   "secret": "your-github-webhook-secret",
   "path": "/webhook",
   "port": 8081,
-  "branch": "refs/heads/master"
+  "branch": "refs/heads/master",
+  "cmd": "git pull origin master --no-edit"
 };
-gulpGitWebhook(config);
+gitWebhook(config);
 ```
 
-Then you can add a line to your `package.json`
+If your server is running Linux and support `systemd`;
+then you can use [generator-nodex](https://github.com/NewbranLTD/generator-nodex) to generate a start up file
 
+Then go to your github settings --> webhooks. Supply the configuration parameters:
 
+Payload URL: The url where your server is running (let's use example.com) http://example.com:8081/webhook
+As you can see the port number `8081` and `/webhook` correspond the config file, so change it accordingly.
+
+Content type: select `application/json`
+
+Secret: generate your own secret phrase, again correspond the configuration file.
+
+Which events would you like to trigger this webhook? Just the push event
+
+Active: check this check box so you can see the log from github.
+
+### One more thing
+
+The `cmd` field is your config is the actual method to run.
 
 ## License
 

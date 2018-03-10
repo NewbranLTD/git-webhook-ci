@@ -1,6 +1,6 @@
 {
   "name": "gulp-git-webhook",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha",
   "description": "A Git(hub) webhook callback server to fetch new code (poor man CI)",
   "homepage": "https://github.com/NewbranLtd/gulp-git-webhook",
   "author": {
