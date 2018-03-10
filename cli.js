@@ -20,6 +20,11 @@ const cli = meow(
   `,
   {
     flags: {
+      provider: {
+        type: 'string',
+        alias: 'pr',
+        default: 'github'
+      },
       dir: {
         type: 'string',
         alias: 'd'

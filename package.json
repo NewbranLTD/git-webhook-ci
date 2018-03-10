@@ -1,6 +1,6 @@
 {
   "name": "git-webhook-ci",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A Git(hub) webhook callback server to fetch new code (poor man CI)",
   "homepage": "https://github.com/NewbranLtd/git-webhook-ci",
   "author": {
@@ -11,7 +11,7 @@
   "files": [
     "lib"
   ],
-  "main": "lib/index.js",
+  "main": "index.js",
   "keywords": [
     "gulp",
     "node",
@@ -82,6 +82,6 @@
     "meow": "^4.0.0"
   },
   "bin": {
-    "git-webhook-ci": "./lib/cli.js"
+    "git-webhook-ci": "cli.js"
   }
 }
