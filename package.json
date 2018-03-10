@@ -34,7 +34,7 @@
     "pretest": "eslint . --fix",
     "precommit": "lint-staged",
     "test": "jest",
-    "run": "NODE_ENV=debug node ./__tests__/fixtures/run.js"
+    "test-run": "NODE_ENV=debug node ./__tests__/fixtures/run.js"
   },
   "lint-staged": {
     "*.js": [

@@ -5,4 +5,4 @@ const config = {
   secret: 'some-crappy-method'
 };
 
-gitWebhookCi(config);
+gitWebhookCi({});
