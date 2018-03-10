@@ -2,7 +2,7 @@
   "name": "git-webhook-ci",
   "version": "0.2.0",
   "description": "A Git(hub) webhook callback server to fetch new code (poor man CI)",
-  "homepage": "https://github.com/NewbranLtd/gulp-git-webhook",
+  "homepage": "https://github.com/NewbranLtd/git-webhook-ci",
   "author": {
     "name": "NEWBRAN.CH",
     "email": "joelckchu@gmail.com",
