@@ -7,13 +7,13 @@ You just need a new cert from github, add this to your project, and setup accord
 ## Installation
 
 ```sh
-  $ npm install --save gulp-git-webhook
+  $ npm install --save git-webhook-ci
 ```
 
 or
 
 ```sh
-  $ yarn add gulp-git-webhook
+  $ yarn add git-webhook-ci
 ```
 
 ## Configuration && Usage
@@ -21,7 +21,7 @@ or
 Create a js file (normally on your project root directory). Let's call it `webhook.js`.
 
 ```js
-const gitWebhook = require('gulp-git-webhook');
+const gitWebhook = require('git-webhook-ci');
 const config = {
   "secret": "your-github-webhook-secret",
   "path": "/webhook",
@@ -76,11 +76,11 @@ If you want to know what is happening internally, you can pass `NODE_ENV=debug`.
 MIT © [NEWBRAN.CH](joelchu.com)
 
 
-[npm-image]: https://badge.fury.io/js/gulp-git-webhook.svg
-[npm-url]: https://npmjs.org/package/gulp-git-webhook
-[travis-image]: https://travis-ci.org/NewbranLtd/gulp-git-webhook.svg?branch=master
-[travis-url]: https://travis-ci.org/NewbranLtd/gulp-git-webhook
-[daviddm-image]: https://david-dm.org/NewbranLtd/gulp-git-webhook.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/NewbranLtd/gulp-git-webhook
+[npm-image]: https://badge.fury.io/js/git-webhook-ci.svg
+[npm-url]: https://npmjs.org/package/git-webhook-ci
+[travis-image]: https://travis-ci.org/NewbranLtd/git-webhook-ci.svg?branch=master
+[travis-url]: https://travis-ci.org/NewbranLtd/git-webhook-ci
+[daviddm-image]: https://david-dm.org/NewbranLtd/git-webhook-ci.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/NewbranLtd/git-webhook-ci
 
 Power by [generator-nodex](https://github.com/NewbranLTD/generator-nodex).
