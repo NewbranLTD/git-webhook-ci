@@ -23,6 +23,7 @@ Create a js file (normally on your project root directory). Let's call it `webho
 ```js
 const gitWebhook = require('git-webhook-ci');
 const config = {
+  "dir": "",
   "secret": "your-github-webhook-secret",
   "path": "/webhook",
   "port": 8081,
@@ -56,6 +57,7 @@ The `cmd` field is your config is the actual method to run. See table below for 
 
 | Property name | Description   | Default  | Type |
 | ------------- | ------------- | ---------| -----|
+| dir           | Where the git root directory is, default to where it gets call | `process.cwd()` | String |
 | secret        | A secret key pass to encrypt data between github and your server | '' | String |
 | path          | The path where the web hook call to your server | `/webhook` | String |
 | port          | The port number where this callback server running on | 8081 | Integer |
@@ -70,6 +72,12 @@ If you want to know what is happening internally, you can pass `NODE_ENV=debug`.
 ```sh
   NODE_ENV=debug node ./webhook.js
 ```
+
+### TODO(s)
+
+1. Test with gitlab, gitee etc.
+2. Expand the branch option to accept multiple branches
+3. Expand the cmd option to accept `Function` and `Object` that allows multiple reaction based on the push event
 
 ## License
 
