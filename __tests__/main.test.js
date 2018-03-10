@@ -1,4 +1,4 @@
-const assert = require('assert');
+'use strict';
 const gitWebhook = require('../lib/index.js');
 // Create a new wrapper method to
 async function methodToTest(config) {
@@ -6,8 +6,10 @@ async function methodToTest(config) {
   return result;
 }
 
-describe('gulpGitWebhook', () => {
-  it('Call function without passing option', () => {
-    assert.throws(methodToTest, Error, 'Expect to pass options!');
+describe('gitWebhookCi test', () => {
+  test('Expect to pass with correct options', () => {
+    expect(() => {
+      methodToTest();
+    }).toThrow();
   });
 });

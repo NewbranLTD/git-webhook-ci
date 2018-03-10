@@ -33,7 +33,8 @@
     "prepublishOnly": "nsp check",
     "pretest": "eslint . --fix",
     "precommit": "lint-staged",
-    "test": "jest"
+    "test": "jest",
+    "run": "NODE_ENV=debug node ./__tests__/fixtures/run.js"
   },
   "lint-staged": {
     "*.js": [
@@ -69,7 +70,10 @@
   },
   "repository": "NewbranLtd/gulp-git-webhook",
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/fixtures/"
+    ]
   },
   "license": "MIT",
   "dependencies": {
