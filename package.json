@@ -1,6 +1,6 @@
 {
   "name": "git-webhook-ci",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A Git(hub) webhook callback server to fetch new code (poor man CI)",
   "homepage": "https://github.com/NewbranLtd/git-webhook-ci",
   "author": {
@@ -80,6 +80,9 @@
   "dependencies": {
     "github-webhook-handler": "^0.7.1",
     "meow": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=7.00"
   },
   "bin": {
     "git-webhook-ci": "cli.js"
