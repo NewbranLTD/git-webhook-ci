@@ -9,7 +9,7 @@
  */
 const { spawn } = require('child_process');
 const http = require('http');
-const provider = require('./lib/provider');
+const provider = require('./lib/providers');
 const defaultOptions = require('./lib/option');
 const log = require('./lib/log');
 /**

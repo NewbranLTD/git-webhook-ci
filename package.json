@@ -9,7 +9,7 @@
     "url": "joelchu.com"
   },
   "files": [
-    "lib"
+    "lib", "index.js", "cli.js"
   ],
   "main": "index.js",
   "keywords": [
