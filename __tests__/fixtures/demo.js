@@ -2,28 +2,28 @@
 /**
  * This will setup the Server and handler middleware
  */
-const gitWebhookCi = require('../../lib/providers/gitee');
+const GitWebhookCi = require('../../lib/providers/gitee');
 const log = require('../../lib/log');
 const http = require('http');
+// Main
+const serve = config => {
+  const g = new GitWebhookCi(config);
+  // Register all the event listeners here first
+  g.on('error', err => {
+    console.log('error', err);
+  });
 
-const serve = () => {
-
-  const handler = new gitWebhookCi();
-  
-  const server = http
+  return http
     .createServer(function(req, res) {
-      handler(req, res, function(err) {
+      g.handler(req, res, function(err) {
         res.statusCode = 404;
-        log('The url got called! [%s]', req.url);
+        log('The url got called! [%s]', req.url, err);
         res.end('-- no such location --');
       });
     })
     .listen(config.port, () => {
       log(`webhook server start @ ${config.port}`);
     });
-
-
-  return server;
 };
-
+// Export
 module.exports = serve;

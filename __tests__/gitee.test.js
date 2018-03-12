@@ -7,26 +7,27 @@ const payload = require('./fixtures/gitee-payload.json');
 const globalConfig = require('./fixtures/config.json');
 const gitWebhookCi = require('./fixtures/demo');
 const config = Object.assign({
-  secret: 'cmd',
-  provider: 'gitee'
-}, globalConfig);
-const host = [config.host, config.port].join(':')
+    secret: 'cmd',
+    provider: 'gitee'
+  },
+  globalConfig
+);
+const host = [config.host, config.port].join(':');
+console.log(host);
 // Run
 describe('Testing with gitee provider', () => {
   let server;
   beforeAll(done => {
-    gitWebhookCi(config).then(result => {
-      server = result;
-      done();
-    });
+    server = gitWebhookCi(config);
+    done();
   });
 
   afterAll(() => {
     server.close();
   });
 
-  it('It should respond with a push payload', () => {
-    return supertest(host)
+  it('It should respond with a push payload', done => {
+    supertest(host)
       .post(config.path)
       .set('Accept', 'application/json')
       .send(payload.push)
@@ -35,6 +36,7 @@ describe('Testing with gitee provider', () => {
       .end((err, res) => {
         console.log('err', err);
         console.log('res', res);
+        done();
       });
   });
 });
