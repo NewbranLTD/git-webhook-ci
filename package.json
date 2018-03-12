@@ -34,8 +34,8 @@
     "prepublishOnly": "nsp check",
     "pretest": "eslint . --fix",
     "precommit": "lint-staged",
-    "test": "jest --forceExit",
-    "test-run": "NODE_ENV=debug node ./__tests__/fixtures/run.js"
+    "test": "jest --runInBand --forceExit",
+    "test-run": "NODE_ENV=debug node ./__tests__/gitee.test.js"
   },
   "lint-staged": {
     "*.js": [
