@@ -1,6 +1,6 @@
 {
   "name": "git-webhook-ci",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A Git(hub) webhook callback server to fetch new code (poor man CI)",
   "homepage": "https://github.com/NewbranLtd/git-webhook-ci",
   "author": {
@@ -69,7 +69,7 @@
       "prettier"
     ]
   },
-  "repository": "NewbranLtd/gulp-git-webhook",
+  "repository": "git@github.com:NewbranLtd/gulp-git-webhook.git",
   "jest": {
     "testEnvironment": "node",
     "testPathIgnorePatterns": [

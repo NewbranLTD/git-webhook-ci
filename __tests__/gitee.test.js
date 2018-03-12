@@ -5,7 +5,7 @@
 const supertest = require('supertest');
 const payload = require('./fixtures/gitee-payload.json');
 const globalConfig = require('./fixtures/config.json');
-const gitWebhookCi = require('../lib/providers/gitee');
+const gitWebhookCi = require('./fixtures/demo');
 const config = Object.assign({
   secret: 'cmd',
   provider: 'gitee'
