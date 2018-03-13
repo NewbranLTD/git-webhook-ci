@@ -13,6 +13,10 @@ const serve = config => {
     console.log('error', err);
   });
 
+  g.on('push', result => {
+    console.log('result', result);
+  });
+
   return http
     .createServer(function(req, res) {
       g.handler(req, res, function(err) {

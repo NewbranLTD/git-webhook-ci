@@ -13,7 +13,6 @@ const config = Object.assign({
   globalConfig
 );
 const host = [config.host, config.port].join(':');
-console.log(host);
 // Run
 describe('Testing with gitee provider', () => {
   let server;
@@ -33,9 +32,8 @@ describe('Testing with gitee provider', () => {
       .send(payload.push)
       .expect('Content-Type', /json/)
       .expect(200)
-      .end((err, res) => {
+      .end(err => {
         console.log('err', err);
-        console.log('res', res);
         done();
       });
   });
