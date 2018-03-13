@@ -69,6 +69,31 @@ The signature as follow
 }
 ```
 
+Example how to combine the wildcard branch option, and a function callback
+
+```js
+const gitWebhook = require('git-webook-ci');
+const { spawn } = require('child_process');
+
+gitWebhook({
+  secret: 'your-secret-between-you-and-github',
+  branch: '*',
+  cmd: (result, opt) => {
+    switch (result.payload.ref) {
+      case 'refs/heads/master':
+        const e1 = spawn('npm', ['run', 'something'], opt);
+      break;
+      case 'refs/heads/develop':
+        const e2 = spawn('npm', ['run', 'something-else'], opt);
+      break;
+      default:
+        // do stuff
+    }
+  }
+});
+
+```
+
 ## New in 0.4.0 - support Gitee.com
 
 You can now pass a new configuration option `provider`:

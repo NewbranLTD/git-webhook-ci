@@ -1,8 +1,14 @@
+/* eslint-disable: no-unused-vars: 0 */
 'use strict';
+const nothing = () => {};
 const gitWebhook = require('../index.js');
 const supertest = require('supertest');
 const config = {
-  secret: 'some-silly-secret-you-dont-want-to-know'
+  secret: 'some-silly-secret-you-dont-want-to-know',
+  cmd: (payload, opt) => {
+    console.log('cmd callback executed');
+    nothing(opt);
+  }
 };
 
 // Run test main
