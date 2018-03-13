@@ -12,14 +12,19 @@ const meow = require('meow');
 const cli = meow(
   `
     Usage
-      $ node startup.js <path>
+      $ node git-webhook-ci <path>
 
-      $ node startup.js <path> --secret secret-from-github
+      $ node git-webhook-ci <path> --secret secret-from-github
 
-      $ node startup.js <path> --secret secret-from-github --cmd 'git pull origin develop'
+      $ node git-webhook-ci <path> --secret secret-from-github --cmd 'git pull origin develop'
   `,
   {
     flags: {
+      provider: {
+        type: 'string',
+        alias: 'pr',
+        default: 'github'
+      },
       dir: {
         type: 'string',
         alias: 'd'
@@ -54,6 +59,9 @@ const cli = meow(
 );
 // Wrap into a method to call
 const serve = function(p, flags) {
+  if (!p || p === '') {
+    throw new Error('You must provide the <path>! Check usage for more detail.');
+  }
   const config = Object.assign({ __caller__: 'meow' }, { dir: p }, flags);
   return gitWebhook(config);
 };

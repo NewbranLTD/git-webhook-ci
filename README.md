@@ -35,6 +35,36 @@ The only require field is `secret` everything else are optional
 gitWebhook(config);
 ```
 
+## New in 0.4.0 - cmd accept (String) command to run or (Function) callback
+
+The `cmd` config option now accept a function.
+
+The signature as follow
+
+```js
+{
+  secret: 'your-secret-between-you-and-github',
+  cmd: (result, opt) => {
+    // result has 3 properties
+    // 1. payload
+    // 2. host
+    // 3. event - from github / gitee
+    // opt is an environment variable that you can pass to the spawn
+  }
+}
+```
+
+## New in 0.4.0 - support Gitee.com
+
+You can now pass a new configuration option `provider`:
+```js
+{
+  secret: 'your-password-between-you-and-gitee',
+  provider: 'gitee'
+}
+```
+## Others
+
 If your server is running Linux and support `systemd`;
 then you can use [generator-nodex](https://github.com/NewbranLTD/generator-nodex) to generate a start up file
 

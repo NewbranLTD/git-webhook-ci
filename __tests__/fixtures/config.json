@@ -1,0 +1,6 @@
+{
+  "secret": "pwd",
+  "path": "/webhook",
+  "port": 8081,
+  "host": "http://localhost"
+}

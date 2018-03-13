@@ -1,5 +1,5 @@
 'use strict';
-const gitWebhook = require('../lib/index.js');
+const gitWebhook = require('../index.js');
 const supertest = require('supertest');
 const config = {
   secret: 'some-silly-secret-you-dont-want-to-know'
@@ -8,12 +8,9 @@ const config = {
 // Run test main
 describe('gitWebhookCi test', () => {
   let server;
-
   beforeEach(done => {
-    gitWebhook(config).then(result => {
-      server = result;
-      done();
-    });
+    server = gitWebhook(config);
+    done();
   });
 
   afterEach(() => {
