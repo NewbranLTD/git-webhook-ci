@@ -38,6 +38,7 @@ const serve = options => {
   if (typeof config.cmd !== 'string' && typeof config.cmd !== 'function') {
     throw new Error('Cmd must be a string or a function!');
   }
+  log(config);
   const createHandler = provider(config.provider);
   // Return without Promise, because there is no need to
   return createHandler(

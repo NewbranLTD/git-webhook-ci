@@ -7,10 +7,14 @@ const payload = require('./fixtures/gitee-payload.json');
 const globalConfig = require('./fixtures/config.json');
 const gitWebhookCi = require('../index');
 const config = Object.assign({
-    secret: 'pwd',
     provider: 'gitee'
   },
-  globalConfig
+  globalConfig,
+  {
+    cmd: (payload, opt) => {
+      console.log('callback', payload, opt);
+    }
+  }
 );
 const host = [config.host, config.port].join(':');
 // Run
