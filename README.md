@@ -1,5 +1,5 @@
 # git-webhook-ci [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> A Git(hub) webhook callback server to fetch new code (poor man CI)
+> A Git (github/gitee) webhook callback server to fetch new code (poor man CI)
 
 This little tool is born out of real projects. Keep having to deploy and setup demo site etc. Why bother if you own the git account?
 You just need a new cert from github, add this to your project, and setup accordingly, and Viola, you get your own poor man CI :)
@@ -111,9 +111,9 @@ Coming soon.
 
 ### TODO(s)
 
-1. Test with gitlab, gitee etc.
+1. Test with gitlab, ~~gitee~~ etc.
 2. Expand the branch option to accept multiple branches
-3. Expand the cmd option to accept `Function` and `Object` that allows multiple reaction based on the push event
+3. Expand the cmd option to accept ~~`Function`~~ and `Object` that allows multiple reaction based on the push event
 
 ## License
 
