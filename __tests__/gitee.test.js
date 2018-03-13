@@ -2,6 +2,7 @@
 /**
  * Gitee test
  */
+const nothing = () => {};
 const supertest = require('supertest');
 const payload = require('./fixtures/gitee-payload.json');
 const globalConfig = require('./fixtures/config.json');
@@ -13,7 +14,8 @@ const config = Object.assign(
   globalConfig,
   {
     cmd: (payload, opt) => {
-      console.log('callback', payload, opt);
+      console.log('Execute gitee callback');
+      nothing(opt);
     }
   }
 );
