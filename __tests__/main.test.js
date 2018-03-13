@@ -8,12 +8,9 @@ const config = {
 // Run test main
 describe('gitWebhookCi test', () => {
   let server;
-
   beforeEach(done => {
-    gitWebhook(config).then(result => {
-      server = result;
-      done();
-    });
+    server = gitWebhook(config);
+    done();
   });
 
   afterEach(() => {
