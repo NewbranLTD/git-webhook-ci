@@ -1,6 +1,6 @@
 {
   "name": "git-webhook-ci",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A Git(hub) webhook callback server to fetch new code (poor man CI)",
   "homepage": "https://github.com/NewbranLtd/git-webhook-ci",
   "author": {

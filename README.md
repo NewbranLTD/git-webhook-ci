@@ -26,14 +26,29 @@ const config = {
   "secret": "your-github-webhook-secret",
   "path": "/webhook",
   "port": 8081,
-  "branch": "refs/heads/master",
+  "branch": "refs/heads/master", // New in 0.4.1 you can pass * wildcard to listen to all branches
   "cmd": "git pull origin master --no-edit"
 };
 /*
-The only require field is `secret` everything else are optional
+
 */
 gitWebhook(config);
 ```
+
+*The only require field is `secret` everything else are optional*
+
+The minimum setup can be like this
+
+```js
+
+  gitWebhook({secret: "your-github-webhook-secret"});
+
+  // or for gitee
+
+  gitWebhook({secret: 'your-gitee-password', provider: 'gitee'});
+
+```
+
 
 ## New in 0.4.0 - cmd accept (String) command to run or (Function) callback
 
@@ -93,9 +108,8 @@ The `cmd` field is your config is the actual method to run. See table below for 
 | secret        | A secret key pass to encrypt data between github and your server | '' | String |
 | path          | The path where the web hook call to your server | `/webhook` | String |
 | port          | The port number where this callback server running on | 8081 | Integer |
-| branch        | The branch where you will trigger action when received event from github | `refs/heads/master` | String |
-| cmd           | The command to execute when callback happens  | `git pull origin master --no-edit` | String |
-
+| branch        | The branch where you will trigger action when received event from github. You can pass `*` wildcard to listen to all the branches  | `refs/heads/master` | String |
+| cmd           | The command to execute when callback happens. You can also pass this as a function (see above for signature) and especially useful when you use `*` for branch  | `git pull origin master --no-edit` | String |
 
 ### Debug option
 
@@ -111,9 +125,9 @@ Coming soon.
 
 ### TODO(s)
 
-1. Test with gitlab, ~~gitee~~ etc.
-2. Expand the branch option to accept multiple branches
-3. Expand the cmd option to accept ~~`Function`~~ and `Object` that allows multiple reaction based on the push event
+1. Test with gitlab, ~~gitee~~ etc. (0.4.0 add gitee support)
+2. ~~Expand the branch option to accept multiple branches~~ (0.4.1 add `*` as wildcard to listen to all branches and combine with `cmd` as function to let the user to choose what to do)
+3. ~~Expand the cmd option to accept `Function` and `Object` that allows multiple reaction based on the push event~~
 
 ## License
 
