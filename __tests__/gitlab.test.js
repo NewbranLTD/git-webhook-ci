@@ -39,7 +39,7 @@ describe('Testing with gitlab provider', () => {
       .post(config.path)
       .set('Accept', 'application/json')
       .set('X-Gitlab-Event', 'Push Hook')
-      .set('X-Gitlba-Token', config.secret)
+      .set('X-Gitlab-Token', config.secret)
       .send(payload)
       .expect('Content-Type', /json/)
       .expect(200)

@@ -35,7 +35,7 @@
     "pretest": "eslint . --fix",
     "precommit": "lint-staged",
     "test": "jest --runInBand --forceExit",
-    "test-run": "NODE_ENV=debug jest ./__tests__/gitee.test.js"
+    "test-run": "NODE_ENV=debug jest ./__tests__/gitlab.test.js"
   },
   "lint-staged": {
     "*.js": [
