@@ -43,9 +43,11 @@ The minimum setup can be like this
 
   gitWebhook({secret: "your-github-webhook-secret"});
 
-  // or for gitee
-
+  // For Gitee
   gitWebhook({secret: 'your-gitee-password', provider: 'gitee'});
+
+  // For Gitlab
+  gitWebhook({secret: 'your-gitlab-token', provider: 'gitlab'});
 
 ```
 
@@ -95,7 +97,7 @@ gitWebhook({
 
 ```
 
-## New in 0.4.0 - support Gitee.com
+## New in 0.4.x - support Gitee.com
 
 You can now pass a new configuration option `provider`:
 ```js
@@ -104,6 +106,18 @@ You can now pass a new configuration option `provider`:
   provider: 'gitee'
 }
 ```
+
+## New in 0.5.x - support Gitlab.com
+
+You just need to change the provider to `gitlab`:
+
+```js
+{
+  secret: 'your-gitlab-token',
+  provider: 'gitlab'
+}
+```
+
 ## Others
 
 If your server is running Linux and support `systemd`;
