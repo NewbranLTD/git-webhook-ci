@@ -59,7 +59,7 @@ The signature as follow
 ```js
 {
   secret: 'your-secret-between-you-and-github',
-  cmd: (result, opt) => {
+  cmd: (result, opt, ref) => {
     // result has 3 properties
     // 1. payload
     // 2. host
@@ -78,8 +78,8 @@ const { spawn } = require('child_process');
 gitWebhook({
   secret: 'your-secret-between-you-and-github',
   branch: '*',
-  cmd: (result, opt) => {
-    switch (result.payload.ref) {
+  cmd: (result, opt, ref) => {
+    switch (ref) {
       case 'refs/heads/master':
         const e1 = spawn('npm', ['run', 'something'], opt);
       break;
@@ -87,7 +87,8 @@ gitWebhook({
         const e2 = spawn('npm', ['run', 'something-else'], opt);
       break;
       default:
-        // do stuff
+        // do special stuff using the result object
+        specialFunc(result.payload, opt);
     }
   }
 });
