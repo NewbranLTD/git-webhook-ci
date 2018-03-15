@@ -3,10 +3,11 @@
 const nothing = () => {};
 const gitWebhook = require('../index.js');
 const supertest = require('supertest');
+const debug = require('debug')('test');
 const config = {
   secret: 'some-silly-secret-you-dont-want-to-know',
   cmd: (payload, opt) => {
-    console.log('cmd callback executed');
+    debug('cmd callback executed');
     nothing(opt);
   }
 };

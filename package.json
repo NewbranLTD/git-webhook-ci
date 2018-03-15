@@ -9,7 +9,9 @@
     "url": "joelchu.com"
   },
   "files": [
-    "lib", "index.js", "cli.js"
+    "lib",
+    "index.js",
+    "cli.js"
   ],
   "main": "index.js",
   "keywords": [
@@ -78,6 +80,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "debug": "^3.1.0",
     "github-webhook-handler": "^0.7.1",
     "meow": "^4.0.0"
   },
