@@ -5,7 +5,7 @@
  */
 const provider = require('./lib/providers');
 const defaultOptions = require('./lib/option');
-const log = require('./lib/log');
+const debug = require('debug')('main');
 const { spawn } = require('child_process');
 
 // Create a callback to execute
@@ -13,13 +13,13 @@ const createCallback = function(cmd) {
   return function(payload, opt) {
     const process = spawn(cmd[0], cmd.filter((c, i) => i > 0), opt);
     process.stdout.on('data', data => {
-      log(`cmd stdout: ${data}`);
+      debug(`cmd stdout: ${data}`);
     });
     process.stderr.on('data', data => {
-      log(`cmd stderr: ${data}`);
+      debug(`cmd stderr: ${data}`);
     });
     process.on('close', code => {
-      log(`cmd exited with ${code}`);
+      debug(`cmd exited with ${code}`);
     });
   };
 };
@@ -38,7 +38,7 @@ const serve = options => {
   if (typeof config.cmd !== 'string' && typeof config.cmd !== 'function') {
     throw new Error('Cmd must be a string or a function!');
   }
-  log(config);
+  debug(config);
   const createHandler = provider(config.provider);
   // Return without Promise, because there is no need to
   return createHandler(

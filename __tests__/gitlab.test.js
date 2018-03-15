@@ -7,6 +7,7 @@ const supertest = require('supertest');
 const payload = require('./fixtures/gitlab-payload.json');
 const globalConfig = require('./fixtures/config.json');
 const gitWebhookCi = require('../index');
+const debug = require('debug')('test');
 const config = Object.assign(
   {
     provider: 'gitlab'
@@ -14,7 +15,7 @@ const config = Object.assign(
   globalConfig,
   {
     cmd: (payload, opt) => {
-      console.log('Execute gitee callback');
+      debug('Execute gitee callback');
       nothing(opt);
     }
   }
@@ -44,7 +45,7 @@ describe('Testing with gitlab provider', () => {
       .expect('Content-Type', /json/)
       .expect(200)
       .end(err => {
-        console.log('err', err);
+        debug('err', err);
         done();
       });
   });
