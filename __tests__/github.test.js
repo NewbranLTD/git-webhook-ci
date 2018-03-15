@@ -3,7 +3,7 @@
 const nothing = () => {};
 const gitWebhook = require('../index.js');
 const supertest = require('supertest');
-const debug = require('debug')('test');
+const debug = require('debug')('git-webhook-ci:test');
 const config = {
   secret: 'some-silly-secret-you-dont-want-to-know',
   cmd: (payload, opt) => {

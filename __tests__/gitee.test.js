@@ -7,7 +7,7 @@ const supertest = require('supertest');
 const payload = require('./fixtures/gitee-payload.json');
 const globalConfig = require('./fixtures/config.json');
 const gitWebhookCi = require('../index');
-const debug = require('debug')('test');
+const debug = require('debug')('git-webhook-ci:test');
 const config = Object.assign(
   {
     provider: 'gitee'
