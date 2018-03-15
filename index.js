@@ -5,7 +5,7 @@
  */
 const provider = require('./lib/providers');
 const defaultOptions = require('./lib/option');
-const debug = require('debug')('main');
+const debug = require('debug')('git-webhook-ci:main');
 const { spawn } = require('child_process');
 
 // Create a callback to execute

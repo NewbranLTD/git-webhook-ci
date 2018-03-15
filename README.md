@@ -143,6 +143,16 @@ Going to replace our own log with `debug` in the next release (0.6.0 coming soon
   DEBUG=* node ./webhook.js
 ```
 
+If you do that, you will see a huge amount of info. All our debug flags are prefixed with `git-webhook-ci`,
+and here is the list of all the keys we use in this npm.
+
+- git-webhook-ci:main
+- git-webhook-ci:gitlab
+- git-webhook-ci:github
+- git-webhook-ci:gitee
+- git-webhook-ci:demo (only in test)
+- git-webhook-ci:test
+
 ## CLI
 
 You can install this tools globally.

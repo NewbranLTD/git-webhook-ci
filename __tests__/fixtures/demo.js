@@ -3,7 +3,7 @@
  * This will setup the Server and handler middleware
  */
 const GitWebhookCi = require('../../lib/providers/gitee');
-const debug = require('debug')('demo');
+const debug = require('debug')('git-webhook-ci:demo');
 const http = require('http');
 // Main
 const serve = config => {
