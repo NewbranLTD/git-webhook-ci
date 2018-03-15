@@ -41,6 +41,7 @@ The minimum setup can be like this
 
 ```js
 
+  // Default is github
   gitWebhook({secret: "your-github-webhook-secret"});
 
   // For Gitee
@@ -200,6 +201,7 @@ server {
 
   server_name yourdomain.com;
 
+  # This part will point to your git-webhook-ci server
   location = /webhook {
     proxy_pass http://localhost:8081;
     proxy_set_header Host $host;
@@ -211,7 +213,7 @@ server {
     proxy_set_header Connection "upgrade";
     proxy_http_version 1.1;
   }
-
+  # This is your regular host setup
   location / {
     proxy_pass http://localhost:8080;
     proxy_set_header Host $host;
