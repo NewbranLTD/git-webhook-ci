@@ -180,70 +180,9 @@ Or in your `package.json`
 
 Then just run it with `npm run webhook`
 
-## Setup with github, gitee, gitlab etc
+## HOW TO
 
-Then go to your github settings --> webhooks. Supply the configuration parameters:
-
-**Payload URL**: The url where your server is running (let's use example.com) http://example.com:8081/webhook
-As you can see the port number `8081` and `/webhook` correspond the config file, so change it accordingly.
-
-**Content type**: select `application/json`
-
-_**Secret**_: generate your own secret phrase, again correspond the configuration file.
-
-**Which events would you like to trigger this webhook?** Just the push event
-
-**Active**: check this check box so you can see the log from github.
-
-The `cmd` field is your config is the actual method to run. See table below for more details:
-
-## Working with systemd
-
-If your server is running Linux and support `systemd`;
-then you can use [generator-nodex](https://github.com/NewbranLTD/generator-nodex) to generate a start up file
-
-## Work with Nginx
-
-You might not want to expose the `http://yourdomain.com:8081/webhook` like this so you could set this up with nginx easily
-
-```
-server {
-
-  server_name yourdomain.com;
-
-  # This part will point to your git-webhook-ci server
-  location = /webhook {
-    proxy_pass http://localhost:8081;
-    proxy_set_header Host $host;
-    # getting the visitor info
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Real-IP $remote_addr;
-    # for socket connection
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
-    proxy_http_version 1.1;
-  }
-  # This is your regular host setup
-  location / {
-    proxy_pass http://localhost:8080;
-    proxy_set_header Host $host;
-    # getting the visitor info
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Real-IP $remote_addr;
-    # for socket connection
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
-    proxy_http_version 1.1;
-  }
-}
-
-```
-
-### TODO(s)
-
-1. Test with ~~gitlab~~, ~~gitee~~ etc. (0.4.0 add gitee support, 0.5.0 add gitlab support) **need more test for the two new providers**.
-2. ~~Expand the branch option to accept multiple branches~~ **(0.4.1 add `*` as wildcard to listen to all branches and combine with `cmd` as function to let the user to choose what to do)**
-3. ~~Expand the cmd option to accept `Function` and `Object` that allows multiple reaction based on the push event~~ **done**
+Check our [Wiki](https://github.com/NewbranLTD/git-webhook-ci/wiki) for more information about how to setup your app.  
 
 ## License
 
