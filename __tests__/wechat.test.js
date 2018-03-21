@@ -4,10 +4,16 @@
  */
 const nothing = () => {};
 const supertest = require('supertest');
+const sha1 = require('sha1');
 const gitWebhookCi = require('../index');
 const debug = require('debug')('git-webhook-ci:test');
 
+const { getTimestamp, getRandomInt } = require('../lib/lib/helpers');
+
 describe('Test Wechat mini callback interface', () => {
+  const timestamp = getTimestamp();
+  const nonce = getRandomInt(1,10);
+  let signature;
   let server;
   let ctn = 0;
   let config = {

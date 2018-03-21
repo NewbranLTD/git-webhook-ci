@@ -148,7 +148,7 @@ Then re-config your webhook with:
 }
 ```
 
-There is a complete example in the [wiki]() to demonstrate how you can do this automatically,
+There is a complete example in the [wiki](https://github.com/NewbranLTD/git-webhook-ci/wiki/Working-with-Wechat-callback) to demonstrate how you can do this automatically,
 with additional module `fs-extra`, `nodemon` and `node-config`.
 
 
