@@ -165,9 +165,7 @@ with additional module `fs-extra`, `nodemon` and `node-config`.
 
 ### Debug option
 
-~~If you want to know what is happening internally, you can pass `NODE_ENV=debug`. It will `console.log` out information.~~
-
-Going to replace our own log with `debug` in the next release (0.6.0 coming soon)
+Internally we use `debug` to track what's going on. So you can just pass the env during the start up of the script to debug your setup.
 
 ```sh
   DEBUG=* node ./webhook.js
