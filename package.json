@@ -1,6 +1,6 @@
 {
   "name": "git-webhook-ci",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "A Git(hub) webhook callback server to fetch new code (poor man CI)",
   "homepage": "https://github.com/NewbranLtd/git-webhook-ci",
   "author": {
@@ -21,7 +21,7 @@
     "github"
   ],
   "devDependencies": {
-    "eslint": "^4.18.2",
+    "eslint": "^4.19.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-xo": "^0.20.1",
     "eslint-plugin-prettier": "^2.6.0",
