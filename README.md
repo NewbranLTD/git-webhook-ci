@@ -122,6 +122,18 @@ You just need to change the provider to `gitlab`:
 }
 ```
 
+## New in 0.8.x - support Wechat mini app callback
+
+We have added a new provider here - it's not a git repo. It supports the Wechat callback.
+
+```js
+{
+  secret: 'the-token-you-setup-with-wechat',
+  provider: 'wechat'
+}
+```
+
+
 ### Full configuration properties
 
 | Property name | Description   | Default  | Type |
@@ -150,8 +162,17 @@ and here is the list of all the keys we use in this npm.
 - git-webhook-ci:gitlab
 - git-webhook-ci:github
 - git-webhook-ci:gitee
+- git-webhook-ci:wechat
 - git-webhook-ci:demo (only in test)
 - git-webhook-ci:test
+
+For example:
+
+```sh
+  DEBUG=git-webhook-ci:main,git-webhook-ci:wechat node ./webhook.js
+```
+
+Then you will only see the main (top interface) and the Wechat internal debug messages.
 
 ## CLI
 
