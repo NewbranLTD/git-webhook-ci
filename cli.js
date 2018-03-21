@@ -17,6 +17,10 @@ const cli = meow(
       $ node git-webhook-ci <path> --secret secret-from-github
 
       $ node git-webhook-ci <path> --secret secret-from-github --cmd 'git pull origin develop'
+
+    For wechat
+
+      $ node git-webhook-ci <path> -secret wechat-token --inited true --cmd 'some cmd'
   `,
   {
     flags: {

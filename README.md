@@ -124,6 +124,14 @@ You just need to change the provider to `gitlab`:
 
 We have added a new provider here - it's not a git repo. It supports the [Wechat callback](https://mp.weixin.qq.com/debug/wxadoc/dev/api/custommsg/callback_help.html).
 
+**There are several different between wechat callback and the other providers**
+
+There is a new property that you need to supply when you init your webhook with Wechat.
+Because this is a two step process. Once your server is verify with Wechat server.
+They will just push data over to the url. So you need to run this once like so.
+
+First you need to run with the `inited:false` (default)
+
 ```js
 {
   secret: 'the-token-you-setup-with-wechat',
@@ -132,13 +140,7 @@ We have added a new provider here - it's not a git repo. It supports the [Wechat
 }
 ```
 
-**There are several different between wechat callback and the other providers**
-
-There is a new property that you need to supply when you init your webhook with Wechat.
-Because this is a two step process. Once your server is verify with Wechat server.
-They will just push data over to the url. So you need to run this once like so.
-
-Then re-config your webhook with:
+Then re-config your webhook to run normal operation:
 
 ```js
 {
