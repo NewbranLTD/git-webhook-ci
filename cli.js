@@ -53,6 +53,11 @@ const cli = meow(
         type: 'string',
         alias: 'c',
         default: 'git pull origin master --no-edit'
+      },
+      inited: {
+        type: 'boolean',
+        alias: 'i',
+        default: false
       }
     }
   }
