@@ -36,6 +36,7 @@
     "prepublishOnly": "nsp check",
     "pretest": "eslint . --fix",
     "precommit": "lint-staged",
+    "test:wechat": "DEBUG=git-webhook-ci:test,git-webhook-ci:wechat jest --forceExit ./__tests__/wechat.test.js",
     "test": "DEBUG=git-webhook-ci:test,git-webhook-ci:demo jest --runInBand --forceExit",
     "test-run": "DEBUG=git-webhook-ci:test,git-webhook-ci:demo jest ./__tests__/gitlab.test.js"
   },
