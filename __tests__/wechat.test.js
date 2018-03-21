@@ -8,18 +8,19 @@ const sha1 = require('sha1');
 const gitWebhookCi = require('../index');
 const globalConfig = require('./fixtures/config.json');
 const debug = require('debug')('git-webhook-ci:test');
-const { getTimestamp, getRandomInt } = require('../lib/lib/helpers');
+const { getTimestamp, getRandomInt } = require('../lib/providers/lib/helpers');
 const nonce = getRandomInt(1,10);
 const timestamp = getTimestamp();
 const echostr = 'knock knock';
-let config = Object.assing(
+let config = Object.assign(
+  {},
+  globalConfig,
   {
     secret: 'the-token-setup-with-wechat',
     provider: 'wechat',
     inited: false,
     port: 8082
   },
-  globalConfig,
   {
     cmd: (payload, opt) => {
       debug('Execute gitee callback');
@@ -54,9 +55,11 @@ describe('Test Wechat mini callback interface', () => {
       .get(config.path)
       .query({ signature, timestamp, nonce, echostr })
       .set('Accept', 'application/json')
-      .expect(200, /echostr/)
+      .expect(200, `${echostr}`)
       .end(err => {
-        debug('err', err);
+        if (err) {
+          return done(err);
+        }
         done();
       });
   });
