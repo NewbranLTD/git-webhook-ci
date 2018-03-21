@@ -12,7 +12,7 @@ const { getTimestamp, getRandomInt } = require('../lib/providers/lib/helpers');
 const nonce = getRandomInt(1,10);
 const timestamp = getTimestamp();
 const echostr = 'knock knock';
-let config = Object.assign(
+const config = Object.assign(
   {},
   globalConfig,
   {
@@ -36,12 +36,17 @@ describe('Test Wechat mini callback interface', () => {
   const signature = sha1(tmpArr.join(''));
   let server;
   let ctn = 0;
+  let option = {};
   // There will be two test here, first test the verify method
   beforeEach(() => {
     if (ctn > 0) {
-      config.inited = true;
+      option = Object.assign({}, config, {
+        inited: true
+      });
+    } else {
+      option = Object.assign({}, config);
     }
-    server = gitWebhookCi(config);
+    server = gitWebhookCi(option);
     ++ctn;
     debug(`Tick ${ctn}`);
   });
@@ -56,6 +61,21 @@ describe('Test Wechat mini callback interface', () => {
       .query({ signature, timestamp, nonce, echostr })
       .set('Accept', 'application/json')
       .expect(200, `${echostr}`)
+      .end(err => {
+        if (err) {
+          return done(err);
+        }
+        done();
+      });
+  });
+
+  test('It should now accept incoming post query', done => {
+    supertest(host)
+      .post(config.path)
+      .send({ key: 'value' })
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200, /ok/)
       .end(err => {
         if (err) {
           return done(err);
