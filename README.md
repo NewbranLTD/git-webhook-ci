@@ -129,9 +129,27 @@ We have added a new provider here - it's not a git repo. It supports the Wechat 
 ```js
 {
   secret: 'the-token-you-setup-with-wechat',
-  provider: 'wechat'
+  provider: 'wechat',
+  inited: false // this is default
 }
 ```
+
+There is a new property that you need to supply when you init your webhook with Wechat.
+Because this is a two step process. Once your server is verify with Wechat server.
+They will just push data over to the url. So you need to run this once like so.
+
+Then re-config your webhook with:
+
+```js
+{
+  secret: 'the-token-you-setup-with-wechat',
+  provider: 'wechat',
+  inited: true
+}
+```
+
+There is a complete example in the [wiki]() to demonstrate how you can do this automatically,
+with additional module `fs-extra`, `nodemon` and `node-config`.
 
 
 ### Full configuration properties
