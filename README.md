@@ -16,7 +16,7 @@ or
   $ yarn add git-webhook-ci
 ```
 
-## Configuration && Usage
+## Configuration and usage
 
 Create a js file (normally on your project root directory). Let's call it `webhook.js`.
 
@@ -35,9 +35,7 @@ const config = {
 gitWebhook(config);
 ```
 
-*The only require field is `secret` everything else are optional*
-
-The minimum setup can be like this
+The minimum setup can be like this:
 
 ```js
 
@@ -101,7 +99,7 @@ const server = gitWebhook({
 As you can see from the code example from above. The method `gitWebhook` actually return the
 `server` instance from `http.createServer`. So you can make it to stop, restart etc easily.
 
-## New in 0.4.x - support Gitee.com
+## New in 0.4.x - support 码云 Gitee.com
 
 You can now pass a new configuration option `provider`:
 ```js
@@ -122,9 +120,9 @@ You just need to change the provider to `gitlab`:
 }
 ```
 
-## New in 0.8.x - support Wechat mini app callback
+## New in 0.8.x - support 微信小程序消息服务 Wechat mini app callback
 
-We have added a new provider here - it's not a git repo. It supports the Wechat callback.
+We have added a new provider here - it's not a git repo. It supports the [Wechat callback](https://mp.weixin.qq.com/debug/wxadoc/dev/api/custommsg/callback_help.html).
 
 ```js
 {
@@ -133,6 +131,8 @@ We have added a new provider here - it's not a git repo. It supports the Wechat 
   inited: false // this is default
 }
 ```
+
+**There are several different between wechat callback and the other providers**
 
 There is a new property that you need to supply when you init your webhook with Wechat.
 Because this is a two step process. Once your server is verify with Wechat server.
@@ -144,13 +144,24 @@ Then re-config your webhook with:
 {
   secret: 'the-token-you-setup-with-wechat',
   provider: 'wechat',
-  inited: true
+  inited: true // default: false
 }
 ```
 
 There is a complete example in the [wiki](https://github.com/NewbranLTD/git-webhook-ci/wiki/Working-with-Wechat-callback) to demonstrate how you can do this automatically,
 with additional module `fs-extra`, `nodemon` and `node-config`.
 
+---
+
+If you are using function as your `cmd` property, there will only be two parameters supply, when execute your callback.
+
+```js
+  {
+    cmd: (result, opt) => {
+      // there is no ref
+    }
+  }
+```
 
 ### Full configuration properties
 
@@ -159,9 +170,10 @@ with additional module `fs-extra`, `nodemon` and `node-config`.
 | dir           | Where the git root directory is, default to where it gets call | `process.cwd()` | String |
 | secret        | A secret key pass to encrypt data between github and your server | '' | String |
 | path          | The path where the web hook call to your server | `/webhook` | String |
-| port          | The port number where this callback server running on | 8081 | Integer |
+| port          | The port number where this callback server running on | `8081` | Integer |
 | branch        | The branch where you will trigger action when received event from github. You can pass `*` wildcard to listen to all the branches  | `refs/heads/master` | String |
 | cmd           | The command to execute when callback happens. You can also pass this as a function (see above for signature) and especially useful when you use `*` for branch  | `git pull origin master --no-edit` | String |
+| inited        | only available with `wechat` provider | `false` | Boolean |
 
 ### Debug option
 
