@@ -8,7 +8,7 @@ const nothing = () => {};
 const supertest = require('supertest');
 const payload = require('./fixtures/gitee-payload.json');
 const globalConfig = require('./fixtures/config.json');
-const gitWebhookCi = require('../index');
+// Const gitWebhookCi = require('../index');
 const debug = require('debug')('git-webhook-ci:test');
 const { join } = require('path');
 const cli = join(__dirname, '..', 'cli.js');
